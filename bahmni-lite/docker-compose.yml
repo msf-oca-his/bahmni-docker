@@ -83,6 +83,7 @@ services:
 
     depends_on:
       - openmrsdb
+      - bahmni-config
     logging: *log-config
     restart: ${RESTART_POLICY}
 
