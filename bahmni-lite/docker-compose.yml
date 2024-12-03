@@ -30,7 +30,7 @@ services:
       TZ: ${TZ}
 
   bahmni-config:
-    image: "836461959029.dkr.ecr.eu-central-1.amazonaws.com/msf-oca-his/malaysia-config:latest"
+    image: "836461959029.dkr.ecr.eu-central-1.amazonaws.com/msf-oca-his/malaysia-config-release:${CONFIG_IMAGE_TAG}"
     volumes:
       - '${CONFIG_VOLUME:?}:/usr/local/bahmni_config'
     logging: *log-config
@@ -38,7 +38,7 @@ services:
 
   openmrs:
     profiles: ["emr","bahmni-lite", "bahmni-mart"]
-    image: "836461959029.dkr.ecr.eu-central-1.amazonaws.com/msf-oca-his/openmrs:latest"
+    image: "836461959029.dkr.ecr.eu-central-1.amazonaws.com/msf-oca-his/openmrs-release:${OPENMRS_IMAGE_TAG}"
     environment:
       TZ: ${TZ}
       OMRS_DB_NAME: ${OPENMRS_DB_NAME:?}
