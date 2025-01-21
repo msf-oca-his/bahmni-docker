@@ -1,0 +1,14 @@
+openmrs.root.url: http://openmrs:8080/openmrs/ws/rest/v1
+bahmni.login.url: http://bahmni-web:8091/bahmni/home/index.html#/login?showLoginMessage
+reports.url: http://reports:8051/bahmnireports/report
+reports.json: ${REPORTS_JSON_PATH}
+dhis.config.directory: ${DHIS2_CONFIG_DIR}
+dhis.url: ${DHIS2_URL}
+dhis.user: ${DHIS2_USER}
+dhis.password: ${DHIS2_PASSWORD}
+openmrs.db.url: ${DHIS2_DB_URL}
+openelis.db.url: ''
+log4j.config.file: log4j.properties
+server.port: ${DHIS2_PORT}
+server.context-path: /dhis-integration/
+submission.audit.folder: /opt/dhis-integration/dhis-integration-data

@@ -278,6 +278,27 @@ services:
     logging: *log-config
     restart: ${RESTART_POLICY}
 
+  dhis-integration:
+    image: 836461959029.dkr.ecr.eu-central-1.amazonaws.com/msf-oca-his/dhis2-integration:latest
+    profiles: [ "reports","bahmni-lite","bahmni-mart" ]
+    environment:
+      REPORTS_JSON_PATH: ${REPORTS_JSON_PATH}
+      DHIS2_CONFIG_DIR: ${DHIS2_CONFIG_DIR}
+      DHIS2_URL: ${DHIS2_URL}
+      DHIS2_USER: ${DHIS2_USER}
+      DHIS2_PASSWORD: ${DHIS2_PASSWORD}
+      DHIS2_DB_URL: ${DHIS2_DB_URL}
+      DHIS2_PORT: ${DHIS2_PORT}
+    volumes:
+      - "${CONFIG_VOLUME:?}:/etc/bahmni_config/:ro"
+      - "./dhis2-integration/dhis-integration.yml:/etc/dhis-integration/dhis-integration.yml"
+    depends_on:
+      - reportsdb
+      - openmrsdb
+      - bahmni-web
+    logging: *log-config
+    restart: ${RESTART_POLICY}
+
 #  cdss:
 #    profiles: [ "cdss" ]
 #    image: bahmni/cdss-reference:${CDSS_IMAGE_TAG:?}
