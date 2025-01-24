@@ -19,7 +19,8 @@ services:
 
   proxy:
     image: 'bahmni/proxy:${PROXY_IMAGE_TAG:?}'
-    #volumes:
+    volumes:
+      - "./proxy/bahmni-proxy.conf:/usr/local/apache2/conf/bahmni-proxy.conf"
       # - ${CERTIFICATE_PATH}:/etc/tls
     ports:
       - '80:80'
