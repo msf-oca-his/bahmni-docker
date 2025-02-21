@@ -201,7 +201,7 @@ services:
     restart: ${RESTART_POLICY}
 
   patient-documents:
-    image: 'bahmni/patient-documents:${PATIENT_DOCUMENTS_TAG:?}'
+    image: '836461959029.dkr.ecr.eu-central-1.amazonaws.com/msf-oca-his/patient-documents:latest'
     profiles: ["emr","bahmni-lite"]
     volumes:
       - 'bahmni-document-images:/usr/share/nginx/html/document_images'
@@ -210,6 +210,7 @@ services:
     environment:
       TZ: ${TZ}
       OPENMRS_HOST: ${OPENMRS_HOST:?}
+      HTTP_PORT: {HTTP_PORT}
     depends_on:
       - openmrs
     logging: *log-config
