@@ -24,7 +24,7 @@ services:
       # - ${CERTIFICATE_PATH}:/etc/tls
     ports:
       - '80:80'
-      - '4433:443'
+      - '443:443'
     logging: *log-config
     restart: ${RESTART_POLICY}
     environment:
