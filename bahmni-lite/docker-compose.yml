@@ -211,7 +211,7 @@ services:
     environment:
       TZ: ${TZ}
       OPENMRS_HOST: ${OPENMRS_HOST:?}
-      HTTP_PORT: {HTTP_PORT}
+      HTTP_PORT: ${HTTP_PORT}
     depends_on:
       - openmrs
     logging: *log-config
